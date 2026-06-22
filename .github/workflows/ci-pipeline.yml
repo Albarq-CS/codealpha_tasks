@@ -15,14 +15,14 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # 2. التحقق من وجود ملف الـ HTML وقراءته كخطوة فحص أولية
+    # 2. التحقق من وجود ملف الـ HTML في الجذر (Root)
     - name: Verify Project Files
       run: |
         echo "Starting Code Verification..."
         cat index.html
         echo "HTML file exists and is validated!"
 
-    # 3. بناء صورة الدوكر فحصاً آلياً للتأكد من خلو الـ Dockerfile من الأخطاء
+    # 3. بناء صورة الدوكر مباشرة من الجذر (Root)
     - name: Build Docker Image
       run: |
         docker build -t hello-albarq:latest .
